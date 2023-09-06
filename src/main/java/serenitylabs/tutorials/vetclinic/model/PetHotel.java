@@ -10,6 +10,7 @@ public class PetHotel {
 
     public static final int MAXIMUM_PETS = 20;
 
+    private int numberOfResidents;
     private final String hotelName;
     private final GuestList guestList;
     private final WaitingList waitingList;
@@ -34,6 +35,15 @@ public class PetHotel {
         return new PetHotel(name);
     }
 
+
+    public int getNumberOfResidents() {
+        return numberOfResidents;
+    }
+
+    public void setNumberOfResidents(int numberOfResidents) {
+        this.numberOfResidents = numberOfResidents;
+    }
+
     private enum HotelAvailability { Available, Full}
 
     private Map<HotelAvailability, CheckInStrategy> checkInStrategy() {
@@ -43,7 +53,7 @@ public class PetHotel {
     }
 
     private HotelAvailability currentAvailability() {
-        return (guestList.size() >= MAXIMUM_PETS) ? HotelAvailability.Full : HotelAvailability.Available;
+        return (guestList.size() >= MAXIMUM_PETS || numberOfResidents>= MAXIMUM_PETS) ? HotelAvailability.Full : HotelAvailability.Available;
     }
 
     public BookingResponse checkIn(Pet pet) {
@@ -66,6 +76,7 @@ public class PetHotel {
     public String getHotelName() {
         return hotelName;
     }
+
 
 }
 

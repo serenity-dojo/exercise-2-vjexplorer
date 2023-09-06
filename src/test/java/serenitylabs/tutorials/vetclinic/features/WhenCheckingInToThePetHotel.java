@@ -2,7 +2,6 @@ package serenitylabs.tutorials.vetclinic.features;
 
 import net.serenitybdd.junit5.SerenityJUnit5Extension;
 import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.Consequence;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import serenitylabs.tutorials.vetclinic.features.tasks.CheckIn;
@@ -12,7 +11,6 @@ import serenitylabs.tutorials.vetclinic.model.PetHotel;
 import serenitylabs.tutorials.vetclinic.model.TheGuests;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.not;
 
@@ -79,9 +77,6 @@ public class WhenCheckingInToThePetHotel {
                 seeThat(TheGuests.onTheWaitingListAt(petHotel), hasItem(ginger)),
                 seeThat(TheGuests.registerdInTheHotel(petHotel), not(hasItem(ginger)))
         );
-
-
     }
 
 }
-

@@ -5,7 +5,6 @@ import net.serenitybdd.screenplay.Question;
 import serenitylabs.tutorials.vetclinic.model.Pet;
 import serenitylabs.tutorials.vetclinic.model.PetHotel;
 
-import java.util.Collection;
 import java.util.List;
 
 public class TheRegisteredGuests implements Question<List<Pet>> {
@@ -16,7 +15,7 @@ public class TheRegisteredGuests implements Question<List<Pet>> {
         this.petHotel = petHotel;
     }
 
-    public static Question<List<Pet>> in(PetHotel petHotel) {
+    public static TheRegisteredGuests in(PetHotel petHotel) {
         return new TheRegisteredGuests(petHotel);
     }
 
